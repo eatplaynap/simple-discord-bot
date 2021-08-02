@@ -1,12 +1,11 @@
 require 'discordrb'
 require 'dotenv/load'
 
-bot = Discordrb::Bot.new(token: ENV['TOKEN'], client_id: ENV['CLIENT_ID'])
+bot = Discordrb::Commands::CommandBot.new token: "#{ENV['TOKEN']}", client_id: ENV['CLIENT_ID'], prefix: '!'
 
-
-bot.message do |event|
-  greeting = ["Hello", "Go to hell", "What's up", "Good bye"].sample
-  event.send_message("#{greeting}, #{event.user.name}")
+bot.command :hello do |event|
+  greeting = ["Hello", "Go to hell", "What's up", "Good bye", "Guten Tag"].sample
+  event.send_message("#{greeting}, #{event.user.name}!")
 end
 
 bot.run
