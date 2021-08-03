@@ -9,7 +9,7 @@ bot.command :hello do |event|
 end
 
 bot.command :test do |event|
-  event.send_message("#{event.channel_id}")
+  event.send_message("Hello")
 end
 
 bot.run
