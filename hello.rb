@@ -8,4 +8,8 @@ bot.command :hello do |event|
   event.send_message("#{greeting}, #{event.user.name}!")
 end
 
+bot.command :test do |event|
+  event.send_message("#{event.channel_id}")
+end
+
 bot.run
